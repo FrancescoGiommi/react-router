@@ -1,5 +1,7 @@
+/* Import NavLink */
 import { NavLink } from "react-router-dom";
 
+/* NavBar */
 export default function NavBar() {
   return (
     <>

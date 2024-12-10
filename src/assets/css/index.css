@@ -1,0 +1,14 @@
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper > main {
+  flex-grow: 1;
+}
+
+footer {
+  height: 80px;
+  background-color: gray;
+}

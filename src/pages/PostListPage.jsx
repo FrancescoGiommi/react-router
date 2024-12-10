@@ -1,10 +1,12 @@
+/* Import link */
 import { Link } from "react-router-dom";
 
+/* Post list page */
 export default function PostListPage() {
   return (
     <>
       <main>
-        <div className="container mt-5">
+        <div className="container my-5">
           <h1>PostList</h1>
           <ul>
             <li>

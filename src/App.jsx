@@ -8,7 +8,9 @@
     
     Implementiamo una navbar in comune a tutte le pagine per poter navigare tra loro
 
-Bonus - Centralizzare la Navbar grazie a un Layout
+Bonus - 
+
+    Centralizzare la Navbar grazie a un Layout
 
     Gestire la classe active*/
 
@@ -20,19 +22,20 @@ import AboutPage from "./pages/AboutPage";
 import PostListPage from "./pages/PostListPage";
 import NotFoundPage from "./pages/NotFoundPages";
 
-/* Import components */
-import NavBar from "./components/NavBar";
+/* Import Outlet */
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefoultLayout from "./defaultLayout/DefaultLayout";
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
       <Routes>
-        <Route path="/" Component={HomePage} />
-        <Route path="/about" Component={AboutPage} />
-        <Route path="/postList" Component={PostListPage} />
-        <Route path="*" Component={NotFoundPage} />
+        <Route Component={DefoultLayout}>
+          <Route path="/" Component={HomePage} />
+          <Route path="/about" Component={AboutPage} />
+          <Route path="/postList" Component={PostListPage} />
+          <Route path="*" Component={NotFoundPage} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
