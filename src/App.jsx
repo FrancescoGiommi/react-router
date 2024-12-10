@@ -20,14 +20,18 @@ import AboutPage from "./pages/AboutPage";
 import PostListPage from "./pages/PostListPage";
 import NotFoundPage from "./pages/NotFoundPages";
 
+/* Import components */
+import NavBar from "./components/NavBar";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path="/" Component={HomePage} />
-        <Route path="/About" Component={AboutPage} />
-        <Route path="/PostList" Component={PostListPage} />
+        <Route path="/about" Component={AboutPage} />
+        <Route path="/postList" Component={PostListPage} />
         <Route path="*" Component={NotFoundPage} />
       </Routes>
     </BrowserRouter>

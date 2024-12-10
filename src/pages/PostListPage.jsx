@@ -1,3 +1,11 @@
 export default function PostListPage() {
-  return <h1>PostList</h1>;
+  return (
+    <>
+      <main>
+        <div className="container mt-5">
+          <h1>PostList</h1>
+        </div>
+      </main>
+    </>
+  );
 }
