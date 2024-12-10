@@ -14,13 +14,23 @@ Bonus - Centralizzare la Navbar grazie a un Layout
 
 // import { useState } from 'react'
 
+/* Import pages */
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import PostListPage from "./pages/PostListPage";
+import NotFoundPage from "./pages/NotFoundPages";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <>
-      <div className="container">
-        <h1 className="mt-5">Hello World</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="/About" Component={AboutPage} />
+        <Route path="/PostList" Component={PostListPage} />
+        <Route path="*" Component={NotFoundPage} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
