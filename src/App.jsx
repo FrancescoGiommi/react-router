@@ -1,6 +1,8 @@
-//! Consegna
+//! Giorno 1
 
-/* Creiamo il frontend del nostro Blog e le sue pagine!
+/*Consegna
+
+ Creiamo il frontend del nostro Blog e le sue pagine!
 
     Partiamo installando React Router DOM: npm install react-router-dom
     
@@ -14,18 +16,35 @@ Bonus -
 
     Gestire la classe active*/
 
+//! Giorno 2
+
+/* Consegna
+
+    Completiamo il nostro routing con l’aggiunta delle pagine di dettaglio!
+
+    Recuperiamo la lista completa dei posts da Express
+    
+    Aggiungiamo alla lista i link alle pagine di dettaglio dei post
+    
+    Facciamo quindi in modo di raggiungere la pagina di dettaglio del singolo post
+
+
+    Bonus
+
+    Gestire l'eliminazione di una risorsa (modificato) */
+
 // import { useState } from 'react'
 
 /* Import pages */
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import PostListPage from "./pages/PostListPage";
+import IndexPosts from "./pages/posts/IndexPosts";
 import NotFoundPage from "./pages/NotFoundPages";
 
 /* Import Outlet */
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DefoultLayout from "./defaultLayout/DefaultLayout";
+import DefoultLayout from "./Layout/DefaultLayout";
+import AlternativeLayout from "./Layout/AlternativeLayout";
 function App() {
   return (
     <BrowserRouter>
@@ -33,8 +52,13 @@ function App() {
         <Route Component={DefoultLayout}>
           <Route path="/" Component={HomePage} />
           <Route path="/about" Component={AboutPage} />
-          <Route path="/postList" Component={PostListPage} />
           <Route path="*" Component={NotFoundPage} />
+        </Route>
+
+        <Route Component={AlternativeLayout}>
+          <Route path="/pages/posts/IndexPosts" Component={IndexPosts}>
+            <Route />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

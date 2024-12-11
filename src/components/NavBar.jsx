@@ -29,8 +29,8 @@ export default function NavBar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/postList">
-                  Postlist
+                <NavLink className="nav-link" to="./pages/posts/IndexPosts">
+                  Posts
                 </NavLink>
               </li>
               <li className="nav-item">
