@@ -58,6 +58,9 @@ export default function IndexPosts() {
                       >
                         <i className="fa-solid fa-eye"></i>
                       </Link>
+                      <button type="button" class="btn btn-danger ms-3">
+                        <i className="fa-solid fa-trash"></i>
+                      </button>
                     </td>
                   </tr>
                 ))}
