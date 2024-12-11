@@ -48,7 +48,13 @@ export default function IndexPosts() {
                     <td>{post.image}</td>
                     <td>{post.title}</td>
                     <td>{post.published ? "Si" : "No"}</td>
-                    <td>{post.tags.join(", ")}</td>
+                    <td>
+                      {post.tags.map((tag) => (
+                        <span className="badge text-bg-primary ms-1 mt-1">
+                          {tag}
+                        </span>
+                      ))}
+                    </td>
                     <td>
                       {/* Show Post */}
                       <Link
