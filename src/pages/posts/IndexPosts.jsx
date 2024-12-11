@@ -1,27 +1,61 @@
 /* Import link */
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { data, Link } from "react-router-dom";
 
 /* Post list page */
 export default function IndexPosts() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = () => {
+    fetch("http://localhost:3000/posts")
+      .then((req) => req.json())
+      .then((data) => {
+        const postsData = data.map((post) => ({
+          id: post.id,
+          image: post.image,
+          title: post.title,
+          published: post.published,
+          tags: post.tags,
+        }));
+        console.log(postsData);
+        setPosts(postsData);
+      });
+  };
+
   return (
     <>
       <main>
         <div className="container my-5">
           <h1>Lista dei post</h1>
-          <ul>
-            <li>
-              <Link to="/pages/1">Post 1</Link>
-            </li>
-            <li>
-              <Link to="/pages/2">Post 2</Link>
-            </li>
-            <li>
-              <Link to="/pages/3">Post 3</Link>
-            </li>
-            <li>
-              <Link to="/pages/4">Post 4</Link>
-            </li>
-          </ul>
+          {posts.length > 0 ? (
+            <table className="table ">
+              <thead>
+                <tr>
+                  <th scope="col">Anteprima</th>
+                  <th scope="col">Titolo</th>
+                  <th scope="col">Disponibilità</th>
+                  <th scope="col">Tags</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">
+                {posts.map((post) => (
+                  <tr key={post.id}>
+                    <td>{post.image}</td>
+                    <td>{post.title}</td>
+                    <td>{post.published ? "Si" : "No"}</td>
+                    <td>{post.tags.join(", ")}</td>
+                    <td></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <h2>No post</h2>
+          )}
         </div>
       </main>
     </>
