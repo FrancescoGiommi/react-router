@@ -52,11 +52,11 @@ export default function IndexPosts() {
                       {/* Show Post */}
 
                       <Link
-                        to="/pages/posts/ShowPosts"
+                        to="/posts/ShowPosts"
                         type="button"
                         className="btn btn-primary"
                       >
-                        <i class="fa-solid fa-eye"></i>
+                        <i className="fa-solid fa-eye"></i>
                       </Link>
                     </td>
                   </tr>
