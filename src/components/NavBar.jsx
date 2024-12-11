@@ -29,7 +29,7 @@ export default function NavBar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="./pages/posts/IndexPosts">
+                <NavLink className="nav-link" to="./pages/posts">
                   Posts
                 </NavLink>
               </li>

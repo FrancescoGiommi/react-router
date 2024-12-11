@@ -40,6 +40,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import IndexPosts from "./pages/posts/IndexPosts";
 import NotFoundPage from "./pages/NotFoundPages";
+import ShowPost from "./pages/posts/ShowPosts";
 
 /* Import Outlet */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -56,7 +57,9 @@ function App() {
         </Route>
 
         <Route Component={AlternativeLayout}>
-          <Route path="/pages/posts/IndexPosts" Component={IndexPosts}>
+          <Route path="/pages/posts" Component={IndexPosts}>
+            <Route index Component={IndexPosts} />
+            <Route path="/pages/posts/ShowPosts" Component={ShowPost} />
             <Route />
           </Route>
         </Route>

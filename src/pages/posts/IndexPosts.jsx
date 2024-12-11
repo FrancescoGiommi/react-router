@@ -48,7 +48,17 @@ export default function IndexPosts() {
                     <td>{post.title}</td>
                     <td>{post.published ? "Si" : "No"}</td>
                     <td>{post.tags.join(", ")}</td>
-                    <td></td>
+                    <td>
+                      {/* Show Post */}
+
+                      <Link
+                        to="/pages/posts/ShowPosts"
+                        type="button"
+                        className="btn btn-primary"
+                      >
+                        <i class="fa-solid fa-eye"></i>
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
