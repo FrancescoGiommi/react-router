@@ -51,14 +51,19 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route Component={DefoultLayout}>
+          {/* Home */}
           <Route path="/" Component={HomePage} />
+          {/* About */}
           <Route path="/about" Component={AboutPage} />
+          {/* Not Found */}
           <Route path="*" Component={NotFoundPage} />
         </Route>
 
         <Route Component={AlternativeLayout}>
           <Route path="/posts">
+            {/* Index page */}
             <Route index Component={IndexPosts} />
+            {/* Show page */}
             <Route path=":id" Component={ShowPost} />
             <Route />
           </Route>

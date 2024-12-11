@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 /* Show */
 export default function ShowPost() {
   const postId = useParams().id;
-  const [singlePost, setSinglePost] = useState();
+  const [singlePost, setSinglePost] = useState(null);
 
   console.log(postId);
 

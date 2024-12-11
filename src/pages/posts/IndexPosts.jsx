@@ -9,6 +9,7 @@ export default function IndexPosts() {
     fetchPosts();
   }, []);
 
+  /* Fetch data */
   const fetchPosts = () => {
     fetch("http://localhost:3000/posts")
       .then((req) => req.json())
@@ -50,7 +51,6 @@ export default function IndexPosts() {
                     <td>{post.tags.join(", ")}</td>
                     <td>
                       {/* Show Post */}
-
                       <Link
                         to={`/posts/${post.id}`}
                         type="button"
