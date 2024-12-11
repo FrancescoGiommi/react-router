@@ -52,7 +52,7 @@ export default function IndexPosts() {
                       {/* Show Post */}
 
                       <Link
-                        to="/posts/ShowPosts"
+                        to={`/posts/${post.id}`}
                         type="button"
                         className="btn btn-primary"
                       >

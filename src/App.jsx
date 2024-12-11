@@ -59,7 +59,7 @@ function App() {
         <Route Component={AlternativeLayout}>
           <Route path="/posts">
             <Route index Component={IndexPosts} />
-            <Route path="ShowPosts" Component={ShowPost} />
+            <Route path=":id" Component={ShowPost} />
             <Route />
           </Route>
         </Route>
