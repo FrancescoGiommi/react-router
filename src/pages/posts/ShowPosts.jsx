@@ -22,7 +22,7 @@ export default function ShowPost() {
   return (
     <>
       <div className="container">
-        <h1>Dettaglio post</h1>
+        <h1 className="my-5">Dettaglio post</h1>
         {postDetail && (
           <div className="card mb-3 mt-5" style={{ maxWidth: "540px" }}>
             <div className="row g-0">

@@ -15,8 +15,6 @@ export default function AlternativeLayout() {
         <main>
           <Outlet />
         </main>
-
-        <footer>Footer</footer>
       </div>
     </>
   );

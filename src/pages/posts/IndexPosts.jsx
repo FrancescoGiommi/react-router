@@ -1,10 +1,12 @@
 /* Import link */
 import { useEffect, useState } from "react";
 import { data, Link } from "react-router-dom";
+import StorePost from "./StorePosts";
 
 /* Post list page */
 export default function IndexPosts() {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -44,6 +46,7 @@ export default function IndexPosts() {
 
   return (
     <>
+      <StorePost />
       <main>
         <div className="container my-5">
           <h1 className="mb-4">Lista dei post</h1>
@@ -71,6 +74,7 @@ export default function IndexPosts() {
                         </span>
                       ))}
                     </td>
+
                     <td>
                       {/* Show Post */}
                       <Link
@@ -99,6 +103,7 @@ export default function IndexPosts() {
           )}
         </div>
       </main>
+      {/* Modal */}
       {posts.map((post) => (
         <div
           key={post.id}

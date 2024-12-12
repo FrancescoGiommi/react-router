@@ -41,6 +41,7 @@ import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPages";
 import IndexPosts from "./pages/posts/IndexPosts";
 import ShowPost from "./pages/posts/ShowPosts";
+import StorePost from "./pages/posts/StorePosts";
 
 /* Import Outlet */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -65,6 +66,8 @@ function App() {
             <Route index Component={IndexPosts} />
             {/* Show page */}
             <Route path=":id" Component={ShowPost} />
+            {/* Create page */}
+            <Route path="store" Component={StorePost} />
             <Route />
           </Route>
         </Route>
