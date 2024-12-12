@@ -6,12 +6,11 @@ export default function ShowPost() {
   const postId = useParams().id;
   const [postDetail, setPostDetail] = useState(null);
 
-  console.log(postId);
-
   useEffect(() => {
     fetchPost(postId);
   }, []);
 
+  /* Fetch data */
   const fetchPost = (id) => {
     fetch(`http://localhost:3000/posts/${id}`)
       .then((req) => req.json())
@@ -21,6 +20,7 @@ export default function ShowPost() {
   };
   return (
     <>
+      {/* Post detail */}
       <div className="container">
         <h1 className="my-5">Dettaglio post</h1>
         {postDetail && (
@@ -35,7 +35,9 @@ export default function ShowPost() {
                   <p className="card-text">{postDetail.description}</p>
                   <p className="card-text">
                     <small className="text-body-secondary">
-                      {postDetail.tags.join(", ")}
+                      {postDetail.tags.map((tag) => (
+                        <span className="badge text-bg-primary m-1">{tag}</span>
+                      ))}
                     </small>
                   </p>
                 </div>
