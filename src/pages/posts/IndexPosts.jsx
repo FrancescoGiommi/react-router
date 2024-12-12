@@ -26,11 +26,27 @@ export default function IndexPosts() {
       });
   };
 
+  /* Add Delete  */
+  const deletePost = (id) => {
+    const apiUrl = `http://localhost:3000/posts/${id}`;
+    fetch(apiUrl, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        fetchPosts();
+      });
+  };
+
+  const handleDeletePost = (id) => {
+    deletePost(id);
+  };
+
   return (
     <>
       <main>
         <div className="container my-5">
-          <h1>Lista dei post</h1>
+          <h1 className="mb-4">Lista dei post</h1>
           {posts.length > 0 ? (
             <table className="table ">
               <thead>
@@ -64,7 +80,13 @@ export default function IndexPosts() {
                       >
                         <i className="fa-solid fa-eye"></i>
                       </Link>
-                      <button type="button" class="btn btn-danger ms-3">
+                      <button
+                        onClick={() => handleDeletePost(post.id)}
+                        type="button"
+                        className="btn btn-danger ms-3"
+                        data-bs-toggle="modal"
+                        data-bs-target={`#delete-posts-modal-${post.id}`}
+                      >
                         <i className="fa-solid fa-trash"></i>
                       </button>
                     </td>
@@ -77,6 +99,55 @@ export default function IndexPosts() {
           )}
         </div>
       </main>
+      {posts.map((post) => (
+        <div
+          key={post.id}
+          className="modal fade"
+          id={`delete-posts-modal-${post.id}`}
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabIndex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1
+                  className="modal-title text-danger fs-5"
+                  id="staticBackdropLabel"
+                >
+                  Sei sicuro di voler eliminare il post
+                  <strong> {post.title} </strong>?
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">L'operazione è irreversibile </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Annulla
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  data-bs-dismiss="modal"
+                >
+                  Elimina
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </>
   );
 }

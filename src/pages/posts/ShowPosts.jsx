@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 /* Show */
 export default function ShowPost() {
   const postId = useParams().id;
-  const [singlePost, setSinglePost] = useState(null);
+  const [postDetail, setPostDetail] = useState(null);
 
   console.log(postId);
 
@@ -16,26 +16,26 @@ export default function ShowPost() {
     fetch(`http://localhost:3000/posts/${id}`)
       .then((req) => req.json())
       .then((data) => {
-        setSinglePost(data);
+        setPostDetail(data);
       });
   };
   return (
     <>
       <div className="container">
         <h1>Dettaglio post</h1>
-        {singlePost && (
+        {postDetail && (
           <div className="card mb-3 mt-5" style={{ maxWidth: "540px" }}>
             <div className="row g-0">
               <div className="col-md-4">
-                <img src={singlePost.image} alt="" />
+                <img src={postDetail.image} alt="" />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h5 className="card-title">{singlePost.title}</h5>
-                  <p className="card-text">{singlePost.description}</p>
+                  <h5 className="card-title">{postDetail.title}</h5>
+                  <p className="card-text">{postDetail.description}</p>
                   <p className="card-text">
                     <small className="text-body-secondary">
-                      {singlePost.tags.join(", ")}
+                      {postDetail.tags.join(", ")}
                     </small>
                   </p>
                 </div>
